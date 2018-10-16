@@ -17,4 +17,4 @@ if num > 0:
 elif num < 0:
 	print("Negative")
 else:
-	print("Fucking 0")
+	print("You get nothing! Good day sir!")
