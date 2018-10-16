@@ -1,4 +1,0 @@
-line1 word
-line2
-line1 word
-uli

@@ -1,5 +1,0 @@
-#!/usr/bin/env python3
-
-dna = 'GTACCTTGATTTCGTATTCTGAGAGGCTGCTGCTTAGCGGTAGCCCCTTGGTTTCCGTGGCAACGGAAAA'
-for nt in dna:
-  print(nt)
