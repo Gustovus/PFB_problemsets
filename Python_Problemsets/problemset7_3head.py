@@ -6,6 +6,6 @@ headcrack = open('Python_07.fasta', 'r')
 
 headhunt = headcrack.read()
 
-found = re.findall(r"\>\S+\s", headhunt)
-print(found)
-
+for found in re.finditer(r"\>(\S+)(.+\n)", headhunt):
+	print("Gene id:", found.group(1), "Description:", found.group(2)) 
+	
