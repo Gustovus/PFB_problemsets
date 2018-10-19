@@ -9,6 +9,7 @@ dictlist = []
 count = 0
 
 for line in monst:
+	line = line.rstrip()
 	if not line.startswith('####'):
 		print(line)	
 print(count)
