@@ -6,7 +6,7 @@ seq1 = open('Python_07_ApoI.fasta', 'r')
 
 seq1readhead = seq1.read()
 
-seq1read = re.sub(r'(>seq1\n)', r'', seq1readhead)
+seq1read = re.sub(r'(.?\n)', r'', seq1readhead)
 
 seq1read = seq1read.replace('\n', '')
 
