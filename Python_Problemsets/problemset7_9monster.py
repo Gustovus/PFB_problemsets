@@ -5,12 +5,16 @@ import re
 monst = open('bionet.py', 'r')
 
 
-dictlist = []
-count = 0
+dictlist = {}
 
 for line in monst:
 	line = line.rstrip()
 	if not line.startswith('####'):
-		print(line)	
-print(count)
+		line = line.replace(' (', '_(')
+		print(line)
+		enzyme,cutsite = line.split()
+		dictlist[enzyme] = cutsite
 
+print(dictlist)
+
+		
