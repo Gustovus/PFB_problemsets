@@ -27,6 +27,11 @@ class DNAseq(object):
 	def FASTAform(self):
 		return '>' + self.gName + '\n' + self.seq 
 
+	def samecheck(self, 2ndDNA):
+		if self.seq == 2ndDNA.seq & self.gName == 2ndDNA.gName & self.spName == 2ndDNA.spName:
+			return True
+		else:
+			return False
 
 DNAseq_obj1 = DNAseq('ATCGATAGCGATTT', 'ABC1', 'Drosophila melanogaster')
 
@@ -37,3 +42,4 @@ for d in [DNAseq_obj1]:
 	print(d.GCcont())
 	print(d.FASTAform())
 
+print(samecheck(d, 'ATCGATAGCGATT'))
