@@ -25,5 +25,5 @@ for seq_record in SeqIO.parse('four_reads.fastq', 'fastq'):
 	print(QualPlus)
 	QualPlus = 0
 
-
+print(cut_qual)
 
