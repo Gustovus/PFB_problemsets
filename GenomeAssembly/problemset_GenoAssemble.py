@@ -13,10 +13,21 @@ for seq in fasta_dict:
 	contiglen.append((len(fasta_dict[str(seq)].seq)))
 
 contiglen = sorted(contiglen)
+contiglen = contiglen[::-1]
 print(contiglen)
 
-maxcontig = contiglen[len(contiglen)-1]
-mincontig = contiglen[0]
+mincontig = min(contiglen)
+maxcontig = max(contiglen)
+sumcontig = sum(contiglen)
+halfcont = int(.5*(sumcontig))
+L50count = 0
+contigsum = 0
 
-print(maxcontig, mincontig)
+print(sumcontig, maxcontig, mincontig)
 
+for contig in contiglen:
+	if contigsum < halfcont:
+		contigsum += contig
+		L50count += 1
+
+print('N50:', contiglen[L50count-1], 'L50:', L50count)
