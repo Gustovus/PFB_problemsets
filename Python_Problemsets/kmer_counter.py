@@ -5,12 +5,13 @@ from Bio import SeqIO
 
 fastq_inp = sys.argv[1]
 kmerlen = sys.argv[2]
-#num_topkmer = sys.argv[3]
+num_topkmer = sys.argv[3]
 
 kmer = ''
 kmerlen = int(kmerlen)
 fastq_seq = '' 
 kmercount = {}
+num_topkmer = int(num_topkmer)
 
 fastq = open(fastq_inp, 'r')
 
@@ -31,5 +32,12 @@ for seq_record in SeqIO.parse(fastq, "fastq"):
 				kmercount[key] += 1 
 #if the seq is already present, increment its count by 1
 
-print(kmercount)
+kmercountsort = sorted(kmercount.keys(), key=lambda x: kmercount[x], reverse = True)
+
+count = 0
+for kmer in kmercountsort:
+	if count <= num_topkmer:
+		print(kmer, '\t', kmercount[kmer])
+		count += 1
+
 
