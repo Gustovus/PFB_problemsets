@@ -9,26 +9,37 @@ multifasta = sys.argv[1]
 fasta = open(multifasta, 'r')
 #opens the fasta input and reads it
 
-seqs_dict = {}
-
+seq_dict = {}
+seqs_dictcount = {}
 
 for line in fasta:
 	line = line.rstrip()
-#removes extra line end
 	if line.startswith('>'):
 		find = re.search(r'>(\S+)', line)
 		geneName = find.group(1)
-		seqs_dict[geneName] = {'A':0, 'C':0, 'T':0, 'G':0}
+		seq_dict[geneName] = ''
+		seqs_dictcount[geneName] = {'A':0, 'C':0, 'T':0, 'G':0}
 	if not line.startswith('>'):
+		seq_dict[geneName] += line
 		for char in line:
 			if char == 'T':
-				seqs_dict[geneName]['T'] += 1
+				seqs_dictcount[geneName]['T'] += 1
 			elif char == 'G':
-				seqs_dict[geneName]['G'] += 1
+				seqs_dictcount[geneName]['G'] += 1
 			elif char == 'C':
-				seqs_dict[geneName]['C'] += 1
+				seqs_dictcount[geneName]['C'] += 1
 			elif char == 'A':
-				seqs_dict[geneName]['A'] += 1
-			#counts each line and tallies
-print(seqs_dict)
-			
+				seqs_dictcount[geneName]['A'] += 1
+		
+#print(seq_dict)
+
+#print(seqs_dictcount)
+
+for i in range(0, len(seq_dict[geneName])):
+	print(seq_dict[geneName][i:i+3])
+#	frame = 0
+#	while frame < 4:
+#		print(seq_dict[geneName][i:i+3]) 
+#		frame += 1
+	
+		
