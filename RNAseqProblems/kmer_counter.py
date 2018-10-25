@@ -36,7 +36,7 @@ kmercountsort = sorted(kmercount.keys(), key=lambda x: kmercount[x], reverse = T
 
 count = 0
 for kmer in kmercountsort:
-	if count <= num_topkmer:
+	if count < num_topkmer:
 		print(kmer, '\t', kmercount[kmer])
 		count += 1
 
