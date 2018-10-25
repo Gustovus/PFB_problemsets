@@ -35,11 +35,13 @@ for line in fasta:
 
 #print(seqs_dictcount)
 
-for i in range(0, len(seq_dict[geneName])):
-	print(seq_dict[geneName][i:i+3])
-#	frame = 0
-#	while frame < 4:
-#		print(seq_dict[geneName][i:i+3]) 
-#		frame += 1
+#for  in range(0, len(seq_dict[geneName])):
+#	print(seq_dict[geneName][i:i+3])
+#	if frame < 4:
+#	print(seq_dict[geneName][0:3]) 
+#			frame += 1
 	
+for geneName in seq_dict:
+	print(seq_dict[geneName][0:3], seq_dict[geneName][3:6], seq_dict[geneName][6:9], seq_dict[geneName][9:12])
+
 		
